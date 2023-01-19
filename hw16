@@ -1,0 +1,42 @@
+let maze = [
+	[1, 1, 1, 1, 1, 1, 1, 1, 1],
+	[2, 0, 0, 0, 1, 0, 0, 0, 1],
+	[1, 1, 1, 0, 1, 0, 1, 0, 1],
+	[1, 0, 0, 0, 1, 0, 1, 0, 1],
+	[1, 1, 1, 0, 1, 0, 1, 0, 1],
+	[1, 0, 1, 0, 0, 0, 0, 0, 1],
+	[1, 0, 1, 0, 1, 1, 1, 0, 1],
+	[1, 0, 0, 0, 0, 0, 1, 0, 3],
+	[1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
+function get_start_coordinate(maze) {
+	let start_coordinate = [];
+	for(let h = 0; h < maze.length; h++) {
+		for(let i = 0; i < maze[h].length; i++) {
+			if(maze[h][i] == 2) {
+				start_coordinate.push(h);
+				start_coordinate.push(i);
+			}
+		}
+	}
+	return start_coordinate;
+}
+
+function get_next_step(previous_step) {
+	console.log(previous_step);
+	let next_steps = [];
+	console.log(maze[previous_step[0] - 1][previous_step[1]]);
+	console.log(maze[previous_step[0]][previous_step[1] + 1]);
+	console.log(maze[previous_step[0] + 1][previous_step[1]]);
+	console.log(maze[previous_step[0]][previous_step[1] - 1]);
+}
+
+function mazeMatrix(maze) {	
+	let start_coordinate = get_start_coordinate(maze);	
+	console.log(maze[start_coordinate[0]][start_coordinate[1]]);
+
+	get_next_step(start_coordinate);
+}
+
+
+mazeMatrix(maze);
